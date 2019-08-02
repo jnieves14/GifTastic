@@ -9,7 +9,7 @@
         <link rel='stylesheet' type='text/css' href='assets/css/reset.css'>
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
     
         <link rel='stylesheet' type='text/css' href='assets/css/style.css'>
     </head>
@@ -19,34 +19,28 @@
         <div class="row">
             <div class="title">
             <h1><center>TV Show Gifs</center></h1>
-            <br>Click on a TV Show title to generate 10 GIFs from <a href="giphy.com">giphy.com</a>.
+            <br>Click on a TV Show title to generate 10 GIFs from <a href="https://giphy.com" target="_blank">giphy.com</a>.
             <br>Add your own TV show to the list by inputting another title anc selecting "Add another show!"
             </div>
+        </div>
         
-        <!-- ROW 2: STARTER BUTTONS  -->
-        <!-- <div class="row">
-            <div class="col-xs-1"></div> -->
-            
-            <!--BUTTONS  -->
+        <div class="row main">
             <div class="col-xs-3" id="left">
                 <div id="buttonsMain"></div>
                 <input id="add-ten" type="submit" value="+10">
                 <input id="reset" type="submit" value="Reset">
             <br>
-        <!-- </div> -->
-
-        <!-- ROW 3: USER SEARCH -->
-        <!-- <div class="row" id="search"> -->
-            <div id="search">
-            <form id="gif-form">
-                <input type="text" id="show-input"><br>
-                <input type="submit" class="add-gif" value="Add another show!">
-            </form>
+    
+                <div id="search">
+                <form id="gif-form">
+                    <input type="text" id="show-input"><br>
+                    <input type="submit" class="add-gif" value="Add another show!">
+                </form>
+                </div>
             </div>
-        </div>
 
-        <!-- ROW 4: RESULTS HERE -->
-        <div class="col-xs-9" id="resultsDiv"></div>
+            <div class="col-xs-9" id="resultsDiv"></div>
+        </div>
 
 
         <script src="https://code.jquery.com/jquery.js"></script>
