@@ -14,7 +14,7 @@ function displayGif() {
     //EMPITES THE DIV HOLDING THE PREVIOUS GIF RESULTS
         $("#resultsDiv").empty();
         console.log(response);
-        var results = response.data;
+        
         for (var i = 0; i < response.data.length; i++) {
             //CREATING A DIV FOR THE GIF
             var gifDiv = $("<div class='gifDiv'>");
@@ -33,7 +33,7 @@ function displayGif() {
             showsImg.attr("src", still);
             showsImg.attr("data-still", still);
             showsImg.attr("data-animate", animated);
-            showsImg.attr("data-state", still);
+            showsImg.attr("data-state", "still");
 
             //GIF RATINGS APPEAR ALONGSIDE DESGINATED GIFS
             gifDiv.append(ratingDiv);
@@ -49,12 +49,14 @@ $("#resultsDiv").on("click", ".sImage", function() {
     var state = $(this).attr("data-state");
     // If the clicked image's state is still, onclick will animate gif based on data-animate value
     if (state === "still") {
-      $(this).attr("src", $(this).data("data-animate"));
-      $(this).attr("data-state", "animate");
+        // $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("src", $(this).data("animate"));
+        $(this).attr("data-state", "animate");
     //If state !== still, clicking will pause the gif
     } else {
-      $(this).attr("src", $(this).data("data-still"));
-      $(this).attr("data-state", "still");
+        // $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("src", $(this).data("still"));
+        $(this).attr("data-state", "still");
     }
   });
 
