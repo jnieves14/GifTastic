@@ -1,41 +1,40 @@
 body {
     text-align: center;
-    /* background: url("../images/background.jpg") ; */
+    background: url("../images/background.jpg") ;
     background-size: 100%;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 18px;
 }
 
 .title {
+    background: white ;
     padding: 40px;
-    margin: 40px;
+    margin: 50px 100px 50px 100px;
     border: 1px solid black;
 }
 
-#buttonsMain {
-    margin: 200px 20px 0px 20px;
+#left {
+    margin: 80px  0px 0px 0px;
+    padding: 10px 0px 0px 150px;
 }
 
-.gifDiv {
-    display: inline-block;
-    padding: 10px;
-    margin: 20px;
-}
-
-.button {
+.button,
+#add-ten,
+#reset {
     padding: 10px;
     margin: 5px;
     box-shadow: 3px;
 }
 
-form {
-    padding: 5px;
-    margin: 5px;
-}
-
-#show-input {
-    margin: 5px;
+#show-input,
+.add-gif {
+    margin: 10px;
     padding: 10px;
 }
 
-.add-gif {
-    margin: 5px;
+.gifDiv {
+    display: inline-block;
+    background: white ;
+    padding: 10px;
+    margin: 20px;
 }
