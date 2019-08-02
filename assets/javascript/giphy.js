@@ -1,10 +1,57 @@
+$(document).ready(function () {
 //GLOBAL VARIABLES
 var topics =["Mr. D", "Kim's Convenience", "Fresh Off the Boat", "Stranger Things", "Community"];   
+var recentClick = [];
+var ten = 10;
+
+//FUNCTION FOR NEW BUTTONS (BASED ON USERS' SEARCH)
+function renderButtons () {
+    $("#buttonsMain").empty ();
+    for (var i = 0; i < topics.length; i++) {
+        var addButton = $("<button class='button'>");
+        addButton.addClass("topics");
+        addButton.attr("data-name", topics[i]);
+        addButton.html(topics[i]);
+        $("#buttonsMain").append(addButton);
+    };
+};
+
+//CREATING NEW BUTTONS WHEN USER HAS ENTERED A VALUE IN THE SEARCH BAR AND SUBMITTING
+$(".add-gif").on("click", function(event) {
+    event.preventDefault();
+    var showGifs = $("#show-input").val().trim();
+    topics.push(showGifs);
+    renderButtons();
+    $("#show-input").val("");
+});
+
+renderButtons();
+
+var addTen = $("#add-ten").on("click", function(event) {
+    event.preventDefault();
+    if (event) {
+        ten += 10;
+    };
+});
+
+$("#reset").on("click", function(event) {
+    event.preventDefault();
+    if (event) {
+        $("#resultsDiv").empty();
+        ten = 10;
+    };
+});
+
+renderButtons();
+
 
 function displayGif() {
+    recentClick = [];
+    $("#resultsDiv").empty();
     var topics = $(this).attr("data-name");
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
         topics + "&api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&limit=10";
+    recentClick.push($(this).attr("data-name"));
     console.log(queryURL);
 
     //AJAX REQUEST USING THE GET METHOD
@@ -18,6 +65,7 @@ function displayGif() {
         console.log(response);
         
         for (var i = 0; i < results.length; i++) {
+            if (results[i].rating !== "R") {
             //CREATING A DIV FOR THE GIF
             var gifDiv = $("<div class='gifDiv'>");
             //STORING THE RESULT ITEM'S RATING
@@ -36,17 +84,24 @@ function displayGif() {
             topicsImg.attr("data-still", still);
             topicsImg.attr("data-animate", animated);
             topicsImg.attr("data-state", "still");
+            addTen.attr('data-name', recentClick);
 
             //GIF RATINGS APPEAR ALONGSIDE DESGINATED GIFS
             gifDiv.append(ratingDiv);
             gifDiv.prepend(topicsImg);
             $("#resultsDiv").prepend(gifDiv);
-        }
+        };
+    };
 });
 };
 
+//CALLS BUTTON TO BE CREATED
+$(document).on("click", ".topics", displayGif);
+// renderButtons();
+
 //ONCLICK FUNCTOINS TO ANIMATE AND PAUSE GIFS
-$("#resultsDiv").on("click", ".sImage", function() {
+$(document).on("click", ".sImage", startStop);
+function startStop() {
     // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
     var state = $(this).attr("data-state");
     // If the clicked image's state is still, onclick will animate gif based on data-animate value
@@ -59,32 +114,6 @@ $("#resultsDiv").on("click", ".sImage", function() {
         // $(this).attr("src", $(this).attr("data-still"));
         $(this).attr("src", $(this).data("still"));
         $(this).attr("data-state", "still");
-    }
-  });
-
-//FUNCTION FOR NEW BUTTONS (BASED ON USERS' SEARCH)
-function renderButtons () {
-    $("#buttonsMain").empty ();
-    for (var i = 0; i < topics.length; i++) {
-        var addButton = $("<button class='button'>");
-        addButton.addClass("topics");
-        addButton.attr("data-name", topics[i]);
-        addButton.html(topics[i]);
-
-        $("#buttonsMain").append(addButton);
-    }
-};
-
-//CREATING NEW BUTTONS WHEN USER HAS ENTERED A VALUE IN THE SEARCH BAR AND SUBMITTING
-$(".add-gif").on("click", function(event) {
-    event.preventDefault();
-    var showGifs = $("#show-input").val().trim();
-    topics.push(showGifs);
-    $("#show-input").val("");
-    renderButtons();
+    };
+  };
 });
-
-//CALLS BUTTON TO BE CREATED
-$(document).on("click", ".topics", displayGif);
-renderButtons();
-
