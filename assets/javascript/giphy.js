@@ -14,7 +14,7 @@ function displayGif() {
     }).done(function(response) {
     //EMPITES THE DIV HOLDING THE PREVIOUS GIF RESULTS
         $("#resultsDiv").empty();
-        var results = repsonse.data;
+        var results = response.data;
         console.log(response);
         
         for (var i = 0; i < results.length; i++) {
