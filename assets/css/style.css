@@ -4,17 +4,20 @@ body {
     background-size: 100%;
 }
 
-#title {
-    
+.title {
+    padding: 40px;
+    margin: 40px;
+    border: 1px solid black;
 }
 
 #buttonsMain {
-    
+    margin: 200px 20px 0px 20px;
 }
 
 .gifDiv {
     display: inline-block;
     padding: 10px;
+    margin: 20px;
 }
 
 .button {
