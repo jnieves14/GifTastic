@@ -1,15 +1,15 @@
 body {
     text-align: center;
-    background-image: ;
-    background-size: cover;
+    /* background: url("../images/background.jpg") ; */
+    background-size: 100%;
 }
 
 #title {
-
+    
 }
 
 #buttonsMain {
-
+    
 }
 
 .gifDiv {
@@ -18,7 +18,7 @@ body {
 }
 
 .button {
-    padding: 5px;
+    padding: 10px;
     margin: 5px;
     box-shadow: 3px;
 }
