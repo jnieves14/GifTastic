@@ -46,7 +46,7 @@ renderButtons();
 
 
 function displayGif() {
-    // recentClick = [];
+    recentClick = [];
     $("#resultsDiv").empty();
     var topics = $(this).attr("data-name");
     // var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
