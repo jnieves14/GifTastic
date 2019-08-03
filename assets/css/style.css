@@ -36,3 +36,33 @@ body {
     padding: 10px;
     margin: 20px;
 }
+
+/* media query width for 1024px and below */
+@media screen and (max-width: 1024px) {
+    body {
+        background-color: black;
+      background: black;
+    }
+  
+    
+  }
+  
+  /* media query width for 768px and below */
+  /* @media screen and (max-width: 768px) {
+    body {
+      background: url("../images/darkness.png");
+    }
+  
+    
+  }
+   */
+  /* media query widthfor 640px and below */
+  /* @media screen and (max-width: 640px) {
+    body {
+      background: url("../images/sakura.png");
+    }
+   */
+    #masthead {
+      position: static;
+    }
+  }
