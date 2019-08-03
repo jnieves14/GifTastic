@@ -2,7 +2,7 @@ $(document).ready(function () {
 //GLOBAL VARIABLES
 var topics =["Mr. D", "Kim's Convenience", "Fresh Off the Boat", "Stranger Things", "Community"];   
 var recentClick = [];
-var ten = 10;
+var  moreGif = 10;
 
 //FUNCTION FOR NEW BUTTONS (BASED ON USERS' SEARCH)
 function renderButtons () {
@@ -30,7 +30,7 @@ renderButtons();
 var addTen = $("#add-ten").on("click", function(event) {
     event.preventDefault();
     if (event) {
-        ten += 10;
+        moreGif += 10;
     };
 });
 
@@ -38,7 +38,7 @@ $("#reset").on("click", function(event) {
     event.preventDefault();
     if (event) {
         $("#resultsDiv").empty();
-        ten = 10;
+        moreGif = 10;
     };
 });
 
@@ -47,7 +47,7 @@ renderButtons();
 
 function displayGif() {
     recentClick = [];
-    $("#resultsDiv").empty();
+    // $("#resultsDiv").empty();
     var topics = $(this).attr("data-name");
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
         topics + "&api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&limit=10";
@@ -58,9 +58,9 @@ function displayGif() {
     $.ajax({
         url: queryURL,
         method: "GET"
-    }).done(function(response) {
-    //EMPITES THE DIV HOLDING THE PREVIOUS GIF RESULTS
-        $("#resultsDiv").empty();
+    }).then(function(response) {
+    //EMPTIES THE DIV HOLDING THE PREVIOUS GIF RESULTS
+        // $("#resultsDiv").empty();
         var results = response.data;
         console.log(response);
         
@@ -94,6 +94,7 @@ function displayGif() {
     };
 });
 };
+
 
 //CALLS BUTTON TO BE CREATED
 $(document).on("click", ".topics", displayGif);
