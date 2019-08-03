@@ -27,6 +27,10 @@ $(".add-button").on("click", function(event) {
 
 renderButtons();
 
+//+10 button still not functioning correctly
+//when choosing a show and selecting +10, it works; however, if you select another show without
+//resetting, it generares 20 gifs off the bat. The +10 incrementing on each button click if not resetted 
+//Need to fix this
 var addTen = $("#add-ten").on("click", function(event) {
     event.preventDefault();
     if (event) {
@@ -34,7 +38,8 @@ var addTen = $("#add-ten").on("click", function(event) {
     };
 });
 
-$("#reset").on("click", function(event) {
+
+var reset = $("#reset").on("click", function(event) {
     event.preventDefault();
     if (event) {
         $("#resultsDiv").empty();
@@ -104,6 +109,8 @@ function displayGif() {
 //CALLS BUTTON TO BE CREATED
 $(document).on("click", ".topics", displayGif);
 // renderButtons();
+
+$("#buttonsMain").on("click", reset);
 
 //ONCLICK FUNCTOINS TO ANIMATE AND PAUSE GIFS
 $(document).on("click", ".sImage", startStop);
