@@ -1,9 +1,12 @@
 body {
     text-align: center;
-    background: url("../images/background.jpg") ;
+    background: url("../images/imax.jpg") ;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     background-size: 100%;
     font-family: 'Permanent Marker', cursive;
     font-size: 18px;
+    
 }
 
 .title {
